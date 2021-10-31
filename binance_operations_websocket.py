@@ -1,8 +1,8 @@
-import time
-
 from binance.enums import SIDE_BUY, SIDE_SELL, ORDER_TYPE_MARKET, ORDER_TYPE_LIMIT, TIME_IN_FORCE_GTC
 
 from decimal import Decimal
+import time
+import math
 
 from binance_functions_websocket import is_above_min, pause_mode
 import binance_config_websocket
@@ -15,10 +15,20 @@ class BinanceOperationsWebsocket:
         self.minimum_quantity = None
 
     def round_price(self, price):
-        return float(Decimal.from_float(price).quantize(Decimal(str(self.minimum_price))))
+        decimal_part = math.modf(self.minimum_price)
+        if decimal_part[0] > 0:
+            new_price = float(Decimal.from_float(price).quantize(Decimal(str(self.minimum_price))))
+        else:
+            new_price = int(price)
+        return new_price
 
     def round_quantity(self, quantity):
-        return float(Decimal.from_float(quantity).quantize(Decimal(str(self.minimum_quantity))))
+        decimal_part = math.modf(self.minimum_quantity)
+        if decimal_part[0] > 0:
+            new_quantity = float(Decimal.from_float(quantity).quantize(Decimal(str(self.minimum_quantity))))
+        else:
+            new_quantity = int(quantity)
+        return new_quantity
 
     async def get_quantity_order_and_new_price(self, price_order):
         new_price_order = price_order * (1 + binance_config_websocket.CONFIDENCE_ORDER)
@@ -142,6 +152,10 @@ class BinanceOperationsWebsocket:
         await self.client.create_margin_order(symbol=binance_config_websocket.SYMBOL, side=side, type=ORDER_TYPE_MARKET,
                                               quantity=quantity, recvWindow=binance_config_websocket.RECVWINDOW,
                                               isIsolated=True)
+
+# LOT SIZE: 2473685.3
+# MIN NOTIONAL: 10
+# OK: 1000000
 
     async def margin_order(self, side):
         if self.minimum_price is None:

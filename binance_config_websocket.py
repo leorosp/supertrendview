@@ -25,7 +25,7 @@ SYMBOL = SYMBOL_P1 + SYMBOL_P2
 # ######################################################################################################################
 
 # Se IS_UP = True, a direção começa como Up; se IS_UP = False, verifica-se a direção; default True.
-IS_UP = False
+IS_UP = True
 
 # TIMER_SLEEP_TIME = 0.0,...,Inf; default 4.0 (s). Tempo necessário para aumentar o sleep_time de acordo com uma taxa.
 # O aumento acontecerá depois de uma iteração, caso a tendência não mude. Em havendo mudança de tendência, o sleep_time
