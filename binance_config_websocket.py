@@ -83,11 +83,11 @@ TOLERANCE = 0.0001
 
 # MAX_COUNTS = 1,...,Inf; default 3. Se o número de mudanças sucessivas, desconsiderando estagnação do preço, for igual
 # a MAX_COUNTS, considera que houve uma mudança de direção.
-MAX_COUNTS = 10
+MAX_COUNTS = 8
 
 # TOLERANCE_CHANGE = 0.0,...,Inf; default 0.0001. Se a diferença percentual absoluta entre o preço anterior e atual do
 # CHANGE for maior ou igual à TOLERANCE_CHANGE, considera-se que houve uma mudança de direção.
-TOLERANCE_CHANGE = 0.0
+TOLERANCE_CHANGE = 0.05
 
 
 # ######################################################################################################################
