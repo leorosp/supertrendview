@@ -124,7 +124,7 @@ VALUE_QUANTITY = 10
 CONFIDENCE_QUANTITY = 0.05
 
 # NUMBER_ATTEMPTS_LIMIT = 1,...,Inf; default 1. Número máximo de tentativas para se consolidar uma operação em limit.
-NUMBER_ATTEMPTS_LIMIT = 1
+NUMBER_ATTEMPTS_LIMIT = 2
 
 # "Must be 0, None (1s) or 100 (100ms)"; default 100. Frequência com a qual as requisições são respondidas pelo servidor
 # no tocante ao order book, de modo que "100" implica numa maior velocidade de resposta.
@@ -146,7 +146,7 @@ MIN_CONFIDENCE_QUANTITY = 0.05
 FEE_BROKERAGE = 0.01
 
 # NUMBER_ATTEMPTS_LIMIT = 1,...,Inf; default 1. Número máximo de tentativas para se consolidar uma operação em margin.
-NUMBER_ATTEMPTS_MARGIN = 1
+NUMBER_ATTEMPTS_MARGIN = 3
 
 # SLEEP_TIME_MARGIN > 0.0,...,Inf; default 0.5 (s). Valor esperado após cada operação de reembolso ou empréstimo.
 SLEEP_TIME_MARGIN = 0.25
