@@ -2,8 +2,6 @@
 # Credenciais do usuário
 # ######################################################################################################################
 
-BINANCE_API_KEY = 'UNYrOvKm5cZW1vokdQF21lPOOfd1zxYs3N5jjJXYT0XOI24jhXBpx6MxmXLl3ydb'
-BINANCE_SECRET_KEY = 'r3jrLFMDa0x9vrZXxHDAmkpy68lkabHpCHC0r1tBBeYgFDIaBwqWP8n0Qy9liJiM'
 
 
 # ######################################################################################################################
